@@ -1,0 +1,2 @@
+run_name,target_col,order,aic,bic,test_rows_used,reg_MAE,reg_MSE,reg_RMSE,reg_MAPE_percent,reg_MAPE_n,reg_MAPE_skipped_zero_actual
+price_only_logret,Return,"(1, 0, 0)",-8107.7540543046525,-8091.259106692351,504,0.012745052342821639,0.0002861290047508371,0.01691534820069741,105.88188397715714,503,1

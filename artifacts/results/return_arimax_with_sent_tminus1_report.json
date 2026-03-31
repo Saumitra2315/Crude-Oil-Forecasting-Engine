@@ -1,0 +1,74 @@
+{
+  "run_name": "return_arimax_with_sent_tminus1",
+  "timestamp_utc": "2026-02-09T23:33:05.567469+00:00",
+  "data": {
+    "train_file": "D:\\ACADS\\4-2\\FIN SOP\\Data\\Code\\Models\\targets_out\\train_return_with_sent_tminus1.csv",
+    "test_file": "D:\\ACADS\\4-2\\FIN SOP\\Data\\Code\\Models\\targets_out\\test_return_with_sent_tminus1.csv",
+    "date_col": "Date",
+    "target_col": "Return",
+    "exog_cols": [
+      "const",
+      "sentiment_t_minus_1"
+    ],
+    "shift_exog_by_1": false,
+    "train_rows_used": 1806,
+    "test_rows_used": 504
+  },
+  "model": {
+    "model_type": "SARIMAX (ARIMAX)",
+    "order_p_d_q": [
+      1,
+      0,
+      0
+    ],
+    "trend": "n",
+    "aic": -8106.357277562984,
+    "bic": -8084.364014079916,
+    "llf": 4057.178638781492,
+    "params": [
+      {
+        "param": "const",
+        "value": 7.938282084110267e-05,
+        "std_err": 0.0006651820798528082,
+        "p_value": 0.9050060047098987
+      },
+      {
+        "param": "x1",
+        "value": 0.0023246202411460306,
+        "std_err": 0.0024479387951242995,
+        "p_value": 0.3423035860864424
+      },
+      {
+        "param": "ar.L1",
+        "value": 0.042412436878304434,
+        "std_err": 0.012912911812709406,
+        "p_value": 0.0010216411502767418
+      },
+      {
+        "param": "sigma2",
+        "value": 0.0006531160400406256,
+        "std_err": 7.959964310507498e-06,
+        "p_value": 0.0
+      }
+    ]
+  },
+  "metrics": {
+    "regression": {
+      "MAE": 0.012756094809893741,
+      "MSE": 0.00028545729663548644,
+      "RMSE": 0.016895481544942317,
+      "MAPE_percent": 107.83353949832942,
+      "MAPE_n": 503,
+      "MAPE_skipped_zero_actual": 1
+    }
+  },
+  "diagnostics": {
+    "ljung_box_pvalue_lag10": 0.1143384007406464
+  },
+  "notes": [
+    "Return target is taken directly from file (no recomputation).",
+    "Sentiment is already t-1 aligned in the file, so no extra shifting is applied.",
+    "Trend is disabled (TREND='n') because walk-forward extend() with exog requires it in statsmodels.",
+    "Intercept is included via exog column 'const' when ADD_INTERCEPT_IN_EXOG=True."
+  ]
+}

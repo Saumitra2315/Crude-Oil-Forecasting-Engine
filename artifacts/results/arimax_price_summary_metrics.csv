@@ -1,0 +1,4 @@
+run_name,target_col,task,order,aic,bic,test_rows_used,reg_MAE,reg_MSE,reg_RMSE,reg_MAPE_percent,reg_MAPE_n,reg_MAPE_skipped_zero_actual,jump_threshold,jump_Accuracy,jump_Precision,jump_Recall,jump_F1,jump_PR_AUC,jump_positive_rate
+price_only_logret,target_return,regression,"(2, 0, 2)",-3800.7952646530184,-3767.8153500240087,504,0.034637538112514056,0.002936622546604822,0.05419061308570722,203.85548662063385,504.0,0.0,,,,,,,
+price_only_parvol,target_vol_parkinson,regression,"(1, 0, 2)",-10620.838173264698,-10593.35213714868,505,0.005034702683517241,5.3830424815846717e-05,0.007336922026016545,37.761582866668306,505.0,0.0,,,,,,,
+price_only_jump,target_jump_flag,jump,"(3, 0, 3)",1126.8460831824646,1170.2346307365378,445,,,,,,,0.5,0.8044943820224719,0.4782608695652174,0.12790697674418605,0.2018348623853211,0.41688191376095907,0.19325842696629214

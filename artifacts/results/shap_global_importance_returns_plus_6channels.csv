@@ -1,0 +1,11 @@
+feature,mean_abs_shap
+ret_lag1,3.9704020757328715e-05
+z_Demand and macro economy,3.4028887243286856e-05
+z_Inventory SPR and refinery,2.8079602909651898e-05
+z_Supply Shock and availability risk,1.846045701286282e-05
+ret_lag4,1.5479536745193863e-05
+z_Transport logistics and chokepoints,8.777941125067498e-06
+ret_lag2,6.511391535199996e-06
+z_Geopolitical Normalisation and Peace,5.717313430599272e-06
+ret_lag3,0.0
+z_OPEC producer policy,0.0
