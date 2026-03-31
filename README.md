@@ -49,6 +49,27 @@ docs/
 
 ## Pipeline Overview
 
+```mermaid
+flowchart TD
+    A[Raw GDELT crude-oil headlines] --> B[Relevance filtering with zero-shot NLI]
+    B --> C[Six channel probabilities per headline]
+    A --> D[CrudeBert sentiment scoring]
+    C --> E[Headline-level relevance outputs]
+    D --> F[Headline-level polarity outputs]
+    E --> G[Daily channel aggregation]
+    F --> G
+    G --> H[Daily channel indices]
+    H --> I[Imputation and decay variants]
+    I --> J[Feature tables for train and test]
+    K[OHLC crude-oil market data] --> L[Returns volatility and jump targets]
+    J --> M[ARIMAX models]
+    L --> M
+    J --> N[XGBoost models]
+    L --> N
+    M --> O[Forecast evaluation]
+    N --> O
+```
+
 ### 1. Data Collection
 
 The scripts in `scripts/01_data_collection/` retrieve daily GDELT news records for crude-oil-related keyword queries.
@@ -202,25 +223,6 @@ Interpretation:
 - the incremental predictive lift is currently small,
 - the project is stronger as a research pipeline than as evidence of large forecasting gains.
 
-## What Is Included vs Omitted
-
-Included:
-
-- the main research scripts,
-- selected inputs and outputs,
-- representative derived feature files,
-- summary model results,
-- the CrudeBert configuration and test notebook.
-
-Omitted:
-
-- the full raw headline archive,
-- the full per-day relevance and sentiment corpora,
-- the large CrudeBert binary weights file,
-- literature PDFs and unrelated workspace material.
-
-The goal of this repository is to preserve the research logic in a readable and portable form.
-
 ## Running The Code
 
 Most scripts were originally written as research utilities and expect file paths and parameters to be edited at the top of each file before execution.
@@ -236,15 +238,51 @@ Typical execution order:
 
 Because the scripts still contain environment-specific paths from the original workspace, they should be treated as research code rather than drop-in production software.
 
-## Suggested Next Improvements
+## Next Phase Of The Project
 
-If this repository is extended further, the highest-value cleanup steps would be:
+This repository reflects the mid-semester review stage of a semester-long machine learning course project. At the current stage, the pipeline for extracting news features, building six interpretable channels, and evaluating baseline forecasting models is already in place.
 
-1. replace hardcoded local paths with CLI arguments or config files,
-2. add a reproducible environment file,
-3. add one orchestrating pipeline script,
-4. document the missing headline-level polarity merge step more explicitly,
-5. add train-test evaluation notebooks and ablation summaries.
+The next phase of the project is intended to focus more heavily on model development and stronger ML comparisons.
+
+### Planned model extensions
+
+The most relevant next models for this project are:
+
+1. `LightGBM`
+   A strong gradient-boosting baseline for structured tabular data. Since the current setup already uses lagged returns, global sentiment, and six channel features, LightGBM is a natural next model to compare directly against XGBoost.
+2. `CatBoost`
+   Another strong boosting model that is often very competitive on medium-sized tabular datasets. It is worth testing because the predictive signal here appears weak, and CatBoost sometimes handles small structured datasets more robustly than XGBoost.
+3. `Regularized linear models`
+   Ridge, Lasso, and Elastic Net are important next baselines. In weak-signal financial forecasting settings, simpler regularized models can perform surprisingly well and give cleaner interpretation than more complex methods.
+4. `Support Vector Regression`
+   SVR can be tested as a nonlinear alternative for return and volatility prediction once the feature set is stabilized.
+5. `Regime-aware models`
+   A useful next research direction is to allow the importance of the six news channels to vary across low-volatility and high-volatility market regimes. This can be approached through regime-switching models or by explicitly adding regime indicators into the ML pipeline.
+
+### Possible advanced end-semester extensions
+
+If time permits in the second half of the semester, the project can move beyond daily aggregated features and test richer models such as:
+
+- sequence models on lagged daily features,
+- attention-based models over headline-level embeddings before daily aggregation,
+- transformer-style temporal models for multivariate forecasting.
+
+These models are more advanced, but they will only be meaningful if the feature engineering and train-test protocol remain disciplined. For this project, stronger feature design and better temporal alignment are likely to matter at least as much as model complexity.
+
+### Planned research improvements
+
+The next empirical improvements are expected to come from:
+
+1. building more feature variants from the six channels,
+2. testing lag structures and rolling summaries of each channel,
+3. comparing alternative daily aggregation choices,
+4. evaluating whether the channels help more for volatility and jump prediction than for raw returns,
+5. running broader model comparisons with walk-forward validation.
+
+So the current status should be read as:
+
+- mid-semester: feature extraction pipeline and baseline models are complete,
+- end-semester goal: stronger ML model comparison and deeper analysis of whether news channels add predictive value.
 
 ## Dependencies
 
