@@ -1,21 +1,24 @@
 import numpy as np
+
 import pandas as pd
+
 from pathlib import Path
 
-# ============================================================
-# ✅✅✅ EDIT ONLY THIS SECTION ✅✅✅
-# ============================================================
 
 INPUT_CSV = Path(r"D:\ACADS\4-2\FIN SOP\Data\Code\Relevance\Final_Polarity_Relevance\Final_Polarity_Relevance\Daily Channel Index\train_2017_2023_raw_index.csv")
 
+
 OUTPUT_CSV = Path(r"D:\ACADS\4-2\FIN SOP\Data\Code\Relevance\Final_Polarity_Relevance\Final_Polarity_Relevance\Daily Channel Index\train_2017_2023_decayed_L10_lambda1_5.csv")
+
 
 DATE_COL = "date"
 
-L = 10          # lookback window length (days)
-LAMBDA = 1.5    # decay rate
 
-# If your channel columns are exactly these, keep them (safest):
+L = 10
+
+LAMBDA = 1.5
+
+
 CHANNEL_COLS_EXACT = [
     "z_Supply Shock and availability risk",
     "z_Transport logistics and chokepoints",
@@ -25,80 +28,107 @@ CHANNEL_COLS_EXACT = [
     "z_Geopolitical Normalisation and Peace",
 ]
 
-# ============================================================
-
 
 def main():
+
     if not INPUT_CSV.exists():
+
         raise FileNotFoundError(f"Input not found: {INPUT_CSV}")
+
 
     df = pd.read_csv(INPUT_CSV)
 
+
     if DATE_COL not in df.columns:
+
         raise ValueError(f"Missing '{DATE_COL}' column in input file.")
 
-    # Parse date robustly (your file looks like dd-mm-yyyy)
+
     df[DATE_COL] = pd.to_datetime(df[DATE_COL], dayfirst=True, errors="coerce")
+
     df = df.dropna(subset=[DATE_COL]).copy()
+
 
     df = df.sort_values(DATE_COL).set_index(DATE_COL)
 
-    # Choose columns to decay:
-    # 1) Prefer exact channel names (most reliable)
-    # 2) If not present, fall back to all numeric columns except date
+
     if all(c in df.columns for c in CHANNEL_COLS_EXACT):
+
         target_cols = CHANNEL_COLS_EXACT
+
     else:
-        # fallback: anything numeric
+
         numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+
         if not numeric_cols:
+
             raise ValueError("No numeric columns found to apply decay on.")
+
         target_cols = numeric_cols
 
-    # Force numeric (if any columns came in as object)
+
     for c in target_cols:
+
         df[c] = pd.to_numeric(df[c], errors="coerce")
 
-    # If any NaNs exist, treat as neutral 0.0 before smoothing
+
     df[target_cols] = df[target_cols].fillna(0.0)
 
-    # Ensure daily spacing (important for “15 days” to mean 15 calendar days)
+
     full_index = pd.date_range(df.index.min(), df.index.max(), freq="D")
+
     df = df.reindex(full_index)
+
     df[target_cols] = df[target_cols].fillna(0.0)
 
-    # Build exponential weights (lag 0..L-1)
-    w_raw = np.exp(-np.arange(L) / LAMBDA)  # unnormalized
 
-    # Rolling apply: window arrives as oldest -> newest
+    w_raw = np.exp(-np.arange(L) / LAMBDA)
+
+
     def decay_roll(window_vals: np.ndarray) -> float:
-        n = len(window_vals)  # 1..L
+
+        n = len(window_vals)
+
         w = w_raw[:n]
-        w = w / w.sum()  # renormalize for short windows at start
-        return float(np.dot(window_vals, w[::-1]))  # reverse weights so newest gets w0
+
+        w = w / w.sum()
+
+        return float(np.dot(window_vals, w[::-1]))
+
 
     decayed = df[target_cols].rolling(window=L, min_periods=1).apply(decay_roll, raw=True)
 
-    # Output: keep both raw and decayed side-by-side (so you can verify)
+
     out = df[target_cols].copy()
+
     for c in target_cols:
+
         out[f"{c}__decayed_L{L}_lambda{int(LAMBDA)}"] = decayed[c]
 
-    # Write with a nice date column (dd-mm-yyyy)
+
     out = out.reset_index().rename(columns={"index": DATE_COL})
+
     out[DATE_COL] = out[DATE_COL].dt.strftime("%d-%m-%Y")
 
+
     OUTPUT_CSV.parent.mkdir(parents=True, exist_ok=True)
+
     out.to_csv(OUTPUT_CSV, index=False, encoding="utf-8-sig")
 
-    # Print a quick sanity summary of weights
+
     w_norm = w_raw / w_raw.sum()
+
     print("=== Exponential decay settings ===")
+
     print(f"L={L}, lambda={LAMBDA}")
+
     print("First 5 normalized weights (today, yesterday, ...):", np.round(w_norm[:5], 6).tolist())
+
     print("Last weight (oldest in window):", float(np.round(w_norm[-1], 8)))
+
     print(f"\nDone. Wrote: {OUTPUT_CSV}")
 
 
 if __name__ == "__main__":
+
     main()
