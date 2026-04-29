@@ -1,0 +1,84 @@
+{
+  "model": {
+    "name": "lightgbm"
+  },
+  "task": {
+    "name": "jump",
+    "target_col": "target_jump_flag",
+    "task_type": "classification",
+    "scale": 1.0,
+    "lag_feature_cols": [
+      "jump_lag1",
+      "jump_lag2",
+      "jump_lag3",
+      "jump_lag4",
+      "vol_lag1",
+      "vol_lag2",
+      "vol_lag3",
+      "vol_lag4",
+      "ret_lag1",
+      "ret_lag2",
+      "ret_lag3",
+      "ret_lag4"
+    ],
+    "threshold": 0.5
+  },
+  "scenario": {
+    "name": "raw__single__inventory_spr_and_refinery",
+    "channel_variant": "raw",
+    "feature_cols": [
+      "CO1 Comdty - Open Interest",
+      "SMAVG (15)",
+      "raw__z_Inventory SPR and refinery"
+    ],
+    "notes": "channel_variant=raw, single_channel=z_Inventory SPR and refinery"
+  },
+  "feature_cols": [
+    "jump_lag1",
+    "jump_lag2",
+    "jump_lag3",
+    "jump_lag4",
+    "vol_lag1",
+    "vol_lag2",
+    "vol_lag3",
+    "vol_lag4",
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "CO1 Comdty - Open Interest",
+    "SMAVG (15)",
+    "raw__z_Inventory SPR and refinery"
+  ],
+  "test_step_rows": 63,
+  "news_lag_days": 1,
+  "summary": {
+    "model": "lightgbm",
+    "task": "jump",
+    "task_type": "classification",
+    "target_col": "target_jump_flag",
+    "scenario": "raw__single__inventory_spr_and_refinery",
+    "channel_variant": "raw",
+    "feature_count": 15,
+    "features": "jump_lag1 | jump_lag2 | jump_lag3 | jump_lag4 | vol_lag1 | vol_lag2 | vol_lag3 | vol_lag4 | ret_lag1 | ret_lag2 | ret_lag3 | ret_lag4 | CO1 Comdty - Open Interest | SMAVG (15) | raw__z_Inventory SPR and refinery",
+    "notes": "channel_variant=raw, single_channel=z_Inventory SPR and refinery",
+    "n_train": 510,
+    "n_test": 103,
+    "walkforward_folds": 2,
+    "walkforward_used_gpu_any": false,
+    "walkforward_n_train_total": 510,
+    "walkforward_n_test_total": 103,
+    "reference_used_gpu": false,
+    "reference_best_iteration": 12,
+    "reference_best_score": 0.7480476742170382,
+    "reference_model_path": "artifacts/results/tree_model_walkforward_lightgbm_full/reference_model__lightgbm__jump__raw__single__inventory_spr_and_refinery.json",
+    "Accuracy": 0.7475728155339806,
+    "Precision": 0.68,
+    "Recall": 0.7727272727272727,
+    "F1": 0.723404255319149,
+    "PositiveRate": 0.42718446601941745,
+    "PredictedPositiveRate": 0.4854368932038835,
+    "ROC_AUC": 0.7904468412942989,
+    "PR_AUC": 0.6739923995526661
+  }
+}

@@ -1,0 +1,5 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,MAE,MSE,RMSE
+catboost,volatility,raw__single__geopolitical_normalisation_and_peace,1,556,139,63,2024-01-02,2024-08-08,False,94,66.64851518070365,0.0050468509352303475,3.4188871499806916e-05,0.005847125062781445
+catboost,volatility,raw__single__geopolitical_normalisation_and_peace,2,606,152,63,2024-08-09,2025-04-03,False,349,61.795536279277776,0.005579286429670752,5.245626534157014e-05,0.007242669766154615
+catboost,volatility,raw__single__geopolitical_normalisation_and_peace,3,657,164,63,2025-04-04,2025-11-10,False,302,63.554117524888376,0.006772644553734347,0.00010009466287331668,0.010004732024063247
+catboost,volatility,raw__single__geopolitical_normalisation_and_peace,4,707,177,12,2025-11-11,2025-12-12,False,219,79.66268551200005,0.0047088831412549345,2.837904693800896e-05,0.005327198789045605

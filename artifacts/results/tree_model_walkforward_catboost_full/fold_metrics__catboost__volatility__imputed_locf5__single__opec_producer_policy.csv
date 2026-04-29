@@ -1,0 +1,5 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,MAE,MSE,RMSE
+catboost,volatility,imputed_locf5__single__opec_producer_policy,1,556,139,63,2024-01-02,2024-08-08,False,107,66.27708183498193,0.004968247591687968,3.297015596276751e-05,0.00574196446895725
+catboost,volatility,imputed_locf5__single__opec_producer_policy,2,606,152,63,2024-08-09,2025-04-03,False,308,61.443554735221745,0.005676159570773829,5.292000993507507e-05,0.00727461407464857
+catboost,volatility,imputed_locf5__single__opec_producer_policy,3,657,164,63,2025-04-04,2025-11-10,False,213,64.60164562166277,0.006673336117047564,9.615746451585598e-05,0.00980599125615845
+catboost,volatility,imputed_locf5__single__opec_producer_policy,4,707,177,12,2025-11-11,2025-12-12,False,357,78.10206679586595,0.00471561949310213,2.844281872579519e-05,0.005333180920032171

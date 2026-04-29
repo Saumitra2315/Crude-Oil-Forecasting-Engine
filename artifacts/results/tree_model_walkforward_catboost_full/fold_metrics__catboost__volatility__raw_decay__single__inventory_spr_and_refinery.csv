@@ -1,0 +1,5 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,MAE,MSE,RMSE
+catboost,volatility,raw_decay__single__inventory_spr_and_refinery,1,556,139,63,2024-01-02,2024-08-08,False,150,66.09760640212522,0.004836145420611135,3.223892683491177e-05,0.005677933324274931
+catboost,volatility,raw_decay__single__inventory_spr_and_refinery,2,606,152,63,2024-08-09,2025-04-03,False,392,61.00059731237416,0.005633519827067896,5.290224968361732e-05,0.007273393271617953
+catboost,volatility,raw_decay__single__inventory_spr_and_refinery,3,657,164,63,2025-04-04,2025-11-10,False,363,64.05484697682415,0.006688538705445342,9.817224286610777e-05,0.009908190695889324
+catboost,volatility,raw_decay__single__inventory_spr_and_refinery,4,707,177,12,2025-11-11,2025-12-12,False,433,78.59033614065578,0.004866247122856346,2.9457630287949978e-05,0.005427488395929555

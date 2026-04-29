@@ -1,0 +1,5 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,MAE,MSE,RMSE
+xgboost,return,imputed_locf5_decay__single__supply_shock_and_availability_risk,1,559,140,63,2024-01-02,2024-08-09,True,143,590.7456230668895,0.042655818050304405,0.0030782353730455813,0.05548184723894457
+xgboost,return,imputed_locf5_decay__single__supply_shock_and_availability_risk,2,610,152,63,2024-08-12,2025-04-04,True,302,534.4588545052261,0.06087867267388379,0.006463224313324891,0.08039418084242722
+xgboost,return,imputed_locf5_decay__single__supply_shock_and_availability_risk,3,660,165,63,2025-04-07,2025-11-11,True,294,644.6063566277576,0.036525553486939866,0.0022406040179358713,0.04733501893879278
+xgboost,return,imputed_locf5_decay__single__supply_shock_and_availability_risk,4,710,178,11,2025-11-12,2025-12-12,True,198,616.2940495930854,0.02515508232077577,0.0010028164019136748,0.031667276515571635

@@ -1,0 +1,14 @@
+{
+  "repo_root": "/home/sam/Crude-Oil-Forecasting-Engine",
+  "outdir": "artifacts/results/tree_model_walkforward_best_shap/xgboost_jump",
+  "models": [
+    "xgboost"
+  ],
+  "tasks": [
+    "jump"
+  ],
+  "scenario_set": "full",
+  "test_step_rows": 63,
+  "news_lag_days": 1,
+  "modeling_frame_snapshot": "artifacts/results/tree_model_walkforward_best_shap/xgboost_jump/modeling_frame_snapshot.csv"
+}

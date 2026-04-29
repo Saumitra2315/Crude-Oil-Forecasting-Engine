@@ -1,0 +1,3 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,Accuracy,Precision,Recall,F1,PositiveRate,PredictedPositiveRate,ROC_AUC,PR_AUC
+xgboost,jump,raw_decay__single__transport_logistics_and_chokepoints,1,408,102,63,2024-04-12,2025-08-06,True,397,0.7744247198339228,0.6507936507936508,0.78125,0.625,0.6944444444444444,0.6349206349206349,0.5079365079365079,0.6902173913043479,0.7225257604174518
+xgboost,jump,raw_decay__single__transport_logistics_and_chokepoints,2,458,115,40,2025-08-07,2025-12-12,True,120,0.7374352984026353,0.875,0.0,0.0,0.0,0.1,0.025,0.5277777777777778,0.12179438495227969

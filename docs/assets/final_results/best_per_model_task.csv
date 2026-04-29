@@ -1,0 +1,10 @@
+model,task,scenario,metric,secondary_metric
+XGBoost,return,imputed_locf5_decay__single__demand_and_macro_economy,RMSE=0.059099,MAE=0.044174
+XGBoost,volatility,raw_decay__single__opec_producer_policy,RMSE=0.007516,MAE=0.005480
+XGBoost,jump,imputed_locf5_decay__single__opec_producer_policy,PR_AUC=0.721831,F1=0.623377
+LightGBM,return,imputed_locf5_decay__single__demand_and_macro_economy,RMSE=0.059484,MAE=0.044965
+LightGBM,volatility,raw__market_only,RMSE=0.007947,MAE=0.006056
+LightGBM,jump,imputed_locf5_decay__single__opec_producer_policy,PR_AUC=0.729594,F1=0.733945
+CatBoost,return,raw__market_plus_all6_channels,RMSE=0.057499,MAE=0.043308
+CatBoost,volatility,raw_decay__single__opec_producer_policy,RMSE=0.007617,MAE=0.005705
+CatBoost,jump,imputed_locf5_decay__market_plus_all6_channels,PR_AUC=0.749896,F1=0.704545

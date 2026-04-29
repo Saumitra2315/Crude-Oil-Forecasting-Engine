@@ -1,0 +1,5 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,MAE,MSE,RMSE
+catboost,volatility,imputed_locf5__single__inventory_spr_and_refinery,1,556,139,63,2024-01-02,2024-08-08,False,94,66.32126929315366,0.005066787345189869,3.464844550277578e-05,0.005886293018766206
+catboost,volatility,imputed_locf5__single__inventory_spr_and_refinery,2,606,152,63,2024-08-09,2025-04-03,False,404,60.92324073100777,0.005602479604413441,5.224342866417086e-05,0.007227961584303755
+catboost,volatility,imputed_locf5__single__inventory_spr_and_refinery,3,657,164,63,2025-04-04,2025-11-10,False,371,63.70305047365168,0.006577632123404922,9.728319874441314e-05,0.00986322456118754
+catboost,volatility,imputed_locf5__single__inventory_spr_and_refinery,4,707,177,12,2025-11-11,2025-12-12,False,401,78.39428937057909,0.004661299988876815,2.757504511079275e-05,0.00525119463653679

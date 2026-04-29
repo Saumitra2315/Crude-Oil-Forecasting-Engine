@@ -9,6 +9,8 @@ openpyxl
 statsmodels
 scikit-learn
 xgboost
+lightgbm
+catboost
 matplotlib
 shap
 plotly

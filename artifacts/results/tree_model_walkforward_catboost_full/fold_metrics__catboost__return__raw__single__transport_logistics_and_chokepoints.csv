@@ -1,0 +1,5 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,MAE,MSE,RMSE
+catboost,return,raw__single__transport_logistics_and_chokepoints,1,559,140,63,2024-01-02,2024-08-09,False,187,576.2876998425877,0.04234322706854548,0.0031178618789836866,0.05583781764166367
+catboost,return,raw__single__transport_logistics_and_chokepoints,2,610,152,63,2024-08-12,2025-04-04,False,793,504.6798840476442,0.05791142067698666,0.005597983053923384,0.07481967023399251
+catboost,return,raw__single__transport_logistics_and_chokepoints,3,660,165,63,2025-04-07,2025-11-11,False,877,610.3369662591881,0.03939624075496206,0.002814968466362018,0.05305627640875317
+catboost,return,raw__single__transport_logistics_and_chokepoints,4,710,178,11,2025-11-12,2025-12-12,False,716,600.2390435089646,0.025785586642595323,0.0010647093088389363,0.032629883677986596

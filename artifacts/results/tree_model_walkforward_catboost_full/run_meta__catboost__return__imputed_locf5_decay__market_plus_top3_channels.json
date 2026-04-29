@@ -1,0 +1,67 @@
+{
+  "model": {
+    "name": "catboost"
+  },
+  "task": {
+    "name": "return",
+    "target_col": "target_return",
+    "task_type": "regression",
+    "scale": 10000.0,
+    "lag_feature_cols": [
+      "ret_lag1",
+      "ret_lag2",
+      "ret_lag3",
+      "ret_lag4"
+    ],
+    "threshold": 0.5
+  },
+  "scenario": {
+    "name": "imputed_locf5_decay__market_plus_top3_channels",
+    "channel_variant": "imputed_locf5_decay",
+    "feature_cols": [
+      "CO1 Comdty - Open Interest",
+      "SMAVG (15)",
+      "imputed_locf5_decay__z_Demand and macro economy",
+      "imputed_locf5_decay__z_Inventory SPR and refinery",
+      "imputed_locf5_decay__z_Supply Shock and availability risk"
+    ],
+    "notes": "channel_variant=imputed_locf5_decay, channels=3"
+  },
+  "feature_cols": [
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "CO1 Comdty - Open Interest",
+    "SMAVG (15)",
+    "imputed_locf5_decay__z_Demand and macro economy",
+    "imputed_locf5_decay__z_Inventory SPR and refinery",
+    "imputed_locf5_decay__z_Supply Shock and availability risk"
+  ],
+  "test_step_rows": 63,
+  "news_lag_days": 1,
+  "summary": {
+    "model": "catboost",
+    "task": "return",
+    "task_type": "regression",
+    "target_col": "target_return",
+    "scenario": "imputed_locf5_decay__market_plus_top3_channels",
+    "channel_variant": "imputed_locf5_decay",
+    "feature_count": 9,
+    "features": "ret_lag1 | ret_lag2 | ret_lag3 | ret_lag4 | CO1 Comdty - Open Interest | SMAVG (15) | imputed_locf5_decay__z_Demand and macro economy | imputed_locf5_decay__z_Inventory SPR and refinery | imputed_locf5_decay__z_Supply Shock and availability risk",
+    "notes": "channel_variant=imputed_locf5_decay, channels=3",
+    "n_train": 699,
+    "n_test": 200,
+    "walkforward_folds": 4,
+    "walkforward_used_gpu_any": false,
+    "walkforward_n_train_total": 699,
+    "walkforward_n_test_total": 200,
+    "reference_used_gpu": false,
+    "reference_best_iteration": 157,
+    "reference_best_score": 558.4757904139699,
+    "reference_model_path": "artifacts/results/tree_model_walkforward_catboost_full/reference_model__catboost__return__imputed_locf5_decay__market_plus_top3_channels.json",
+    "MAE": 0.04398401658720386,
+    "MSE": 0.003490878042998968,
+    "RMSE": 0.05908365292531402
+  }
+}

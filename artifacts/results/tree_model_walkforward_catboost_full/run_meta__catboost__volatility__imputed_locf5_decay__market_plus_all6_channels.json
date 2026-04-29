@@ -1,0 +1,81 @@
+{
+  "model": {
+    "name": "catboost"
+  },
+  "task": {
+    "name": "volatility",
+    "target_col": "target_vol_parkinson",
+    "task_type": "regression",
+    "scale": 10000.0,
+    "lag_feature_cols": [
+      "vol_lag1",
+      "vol_lag2",
+      "vol_lag3",
+      "vol_lag4",
+      "ret_lag1",
+      "ret_lag2",
+      "ret_lag3",
+      "ret_lag4"
+    ],
+    "threshold": 0.5
+  },
+  "scenario": {
+    "name": "imputed_locf5_decay__market_plus_all6_channels",
+    "channel_variant": "imputed_locf5_decay",
+    "feature_cols": [
+      "CO1 Comdty - Open Interest",
+      "SMAVG (15)",
+      "imputed_locf5_decay__z_Supply Shock and availability risk",
+      "imputed_locf5_decay__z_Transport logistics and chokepoints",
+      "imputed_locf5_decay__z_Demand and macro economy",
+      "imputed_locf5_decay__z_Inventory SPR and refinery",
+      "imputed_locf5_decay__z_OPEC producer policy",
+      "imputed_locf5_decay__z_Geopolitical Normalisation and Peace"
+    ],
+    "notes": "channel_variant=imputed_locf5_decay, channels=6"
+  },
+  "feature_cols": [
+    "vol_lag1",
+    "vol_lag2",
+    "vol_lag3",
+    "vol_lag4",
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "CO1 Comdty - Open Interest",
+    "SMAVG (15)",
+    "imputed_locf5_decay__z_Supply Shock and availability risk",
+    "imputed_locf5_decay__z_Transport logistics and chokepoints",
+    "imputed_locf5_decay__z_Demand and macro economy",
+    "imputed_locf5_decay__z_Inventory SPR and refinery",
+    "imputed_locf5_decay__z_OPEC producer policy",
+    "imputed_locf5_decay__z_Geopolitical Normalisation and Peace"
+  ],
+  "test_step_rows": 63,
+  "news_lag_days": 1,
+  "summary": {
+    "model": "catboost",
+    "task": "volatility",
+    "task_type": "regression",
+    "target_col": "target_vol_parkinson",
+    "scenario": "imputed_locf5_decay__market_plus_all6_channels",
+    "channel_variant": "imputed_locf5_decay",
+    "feature_count": 16,
+    "features": "vol_lag1 | vol_lag2 | vol_lag3 | vol_lag4 | ret_lag1 | ret_lag2 | ret_lag3 | ret_lag4 | CO1 Comdty - Open Interest | SMAVG (15) | imputed_locf5_decay__z_Supply Shock and availability risk | imputed_locf5_decay__z_Transport logistics and chokepoints | imputed_locf5_decay__z_Demand and macro economy | imputed_locf5_decay__z_Inventory SPR and refinery | imputed_locf5_decay__z_OPEC producer policy | imputed_locf5_decay__z_Geopolitical Normalisation and Peace",
+    "notes": "channel_variant=imputed_locf5_decay, channels=6",
+    "n_train": 695,
+    "n_test": 201,
+    "walkforward_folds": 4,
+    "walkforward_used_gpu_any": false,
+    "walkforward_n_train_total": 695,
+    "walkforward_n_test_total": 201,
+    "reference_used_gpu": false,
+    "reference_best_iteration": 170,
+    "reference_best_score": 67.2244066003437,
+    "reference_model_path": "artifacts/results/tree_model_walkforward_catboost_full/reference_model__catboost__volatility__imputed_locf5_decay__market_plus_all6_channels.json",
+    "MAE": 0.005826189081260934,
+    "MSE": 5.948505775867739e-05,
+    "RMSE": 0.007712655687808019
+  }
+}

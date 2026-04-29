@@ -1,0 +1,5 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,MAE,MSE,RMSE
+lightgbm,return,imputed_locf5__single__demand_and_macro_economy,1,559,140,63,2024-01-02,2024-08-09,False,113,556.6805115348238,0.04703110133737458,0.003190563505967394,0.05648507330231053
+lightgbm,return,imputed_locf5__single__demand_and_macro_economy,2,610,152,63,2024-08-12,2025-04-04,False,180,519.5615695989635,0.057201720947970096,0.006058078893503206,0.07783366169918518
+lightgbm,return,imputed_locf5__single__demand_and_macro_economy,3,660,165,63,2025-04-07,2025-11-11,False,138,638.5221947515291,0.03572823025024006,0.002197444532096404,0.04687690830351767
+lightgbm,return,imputed_locf5__single__demand_and_macro_economy,4,710,178,11,2025-11-12,2025-12-12,False,123,613.2218135429506,0.030288893969161748,0.0012486879325184679,0.03533677875130199

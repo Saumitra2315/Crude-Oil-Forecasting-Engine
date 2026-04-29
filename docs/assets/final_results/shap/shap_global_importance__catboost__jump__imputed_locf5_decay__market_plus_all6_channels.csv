@@ -1,0 +1,21 @@
+feature,mean_abs_shap
+jump_lag1,0.11304833662648982
+vol_lag3,0.025499490169435115
+jump_lag4,0.011279275304967976
+imputed_locf5_decay__z_Demand and macro economy,0.010645119386527256
+ret_lag1,0.010328027091569877
+SMAVG (15),0.010064111933394087
+ret_lag4,0.0075043357119276
+imputed_locf5_decay__z_OPEC producer policy,0.005607179747012004
+ret_lag3,0.0049773507558707785
+imputed_locf5_decay__z_Inventory SPR and refinery,0.004923216384436553
+CO1 Comdty - Open Interest,0.004260515929286781
+ret_lag2,0.002209360303915648
+jump_lag3,0.0
+jump_lag2,0.0
+vol_lag4,0.0
+vol_lag1,0.0
+vol_lag2,0.0
+imputed_locf5_decay__z_Supply Shock and availability risk,0.0
+imputed_locf5_decay__z_Transport logistics and chokepoints,0.0
+imputed_locf5_decay__z_Geopolitical Normalisation and Peace,0.0

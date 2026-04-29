@@ -1,0 +1,4 @@
+task,winner_model,winner_scenario,winner_metric,winner_secondary_metric,runner_up_model,runner_up_metric
+return,CatBoost,raw__market_plus_all6_channels,RMSE=0.057499,MAE=0.043308,XGBoost,RMSE=0.059099
+volatility,XGBoost,raw_decay__single__opec_producer_policy,RMSE=0.007516,MAE=0.005480,CatBoost,RMSE=0.007617
+jump,CatBoost,imputed_locf5_decay__market_plus_all6_channels,PR_AUC=0.749896,F1=0.704545,LightGBM,PR_AUC=0.729594

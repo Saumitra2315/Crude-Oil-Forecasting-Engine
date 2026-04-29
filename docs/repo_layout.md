@@ -13,7 +13,9 @@ This repository was assembled from a larger research workspace and reorganized i
 - `scripts/04_feature_engineering/`
   - daily aggregation, thresholding, imputation, smoothing, and target construction
 - `scripts/05_modeling/`
-  - ARIMAX and XGBoost experiments
+  - ARIMAX, XGBoost, and tree-model benchmark experiments
+- `scripts/06_reporting/`
+  - final-results report generation and presentation helpers
 
 ## Artifacts
 

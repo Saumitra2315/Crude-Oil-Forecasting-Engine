@@ -1,0 +1,5 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,MAE,MSE,RMSE
+xgboost,return,imputed_locf5_decay__single__opec_producer_policy,1,559,140,63,2024-01-02,2024-08-09,True,143,591.8600388970618,0.043579761907685914,0.003094546721082127,0.055628650182097054
+xgboost,return,imputed_locf5_decay__single__opec_producer_policy,2,610,152,63,2024-08-12,2025-04-04,True,334,528.7542802801307,0.05930431026214237,0.006163904089276608,0.0785105348935836
+xgboost,return,imputed_locf5_decay__single__opec_producer_policy,3,660,165,63,2025-04-07,2025-11-11,True,608,634.7891429871618,0.03895993825836165,0.002424490019611919,0.0492391106704002
+xgboost,return,imputed_locf5_decay__single__opec_producer_policy,4,710,178,11,2025-11-12,2025-12-12,True,279,613.3912938792603,0.026114711804762415,0.0009486847655529206,0.030800726704948385

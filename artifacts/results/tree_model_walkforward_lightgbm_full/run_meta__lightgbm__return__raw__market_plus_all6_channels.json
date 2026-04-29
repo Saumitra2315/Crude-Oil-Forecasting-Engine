@@ -1,0 +1,73 @@
+{
+  "model": {
+    "name": "lightgbm"
+  },
+  "task": {
+    "name": "return",
+    "target_col": "target_return",
+    "task_type": "regression",
+    "scale": 10000.0,
+    "lag_feature_cols": [
+      "ret_lag1",
+      "ret_lag2",
+      "ret_lag3",
+      "ret_lag4"
+    ],
+    "threshold": 0.5
+  },
+  "scenario": {
+    "name": "raw__market_plus_all6_channels",
+    "channel_variant": "raw",
+    "feature_cols": [
+      "CO1 Comdty - Open Interest",
+      "SMAVG (15)",
+      "raw__z_Supply Shock and availability risk",
+      "raw__z_Transport logistics and chokepoints",
+      "raw__z_Demand and macro economy",
+      "raw__z_Inventory SPR and refinery",
+      "raw__z_OPEC producer policy",
+      "raw__z_Geopolitical Normalisation and Peace"
+    ],
+    "notes": "channel_variant=raw, channels=6"
+  },
+  "feature_cols": [
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "CO1 Comdty - Open Interest",
+    "SMAVG (15)",
+    "raw__z_Supply Shock and availability risk",
+    "raw__z_Transport logistics and chokepoints",
+    "raw__z_Demand and macro economy",
+    "raw__z_Inventory SPR and refinery",
+    "raw__z_OPEC producer policy",
+    "raw__z_Geopolitical Normalisation and Peace"
+  ],
+  "test_step_rows": 63,
+  "news_lag_days": 1,
+  "summary": {
+    "model": "lightgbm",
+    "task": "return",
+    "task_type": "regression",
+    "target_col": "target_return",
+    "scenario": "raw__market_plus_all6_channels",
+    "channel_variant": "raw",
+    "feature_count": 12,
+    "features": "ret_lag1 | ret_lag2 | ret_lag3 | ret_lag4 | CO1 Comdty - Open Interest | SMAVG (15) | raw__z_Supply Shock and availability risk | raw__z_Transport logistics and chokepoints | raw__z_Demand and macro economy | raw__z_Inventory SPR and refinery | raw__z_OPEC producer policy | raw__z_Geopolitical Normalisation and Peace",
+    "notes": "channel_variant=raw, channels=6",
+    "n_train": 699,
+    "n_test": 200,
+    "walkforward_folds": 4,
+    "walkforward_used_gpu_any": false,
+    "walkforward_n_train_total": 699,
+    "walkforward_n_test_total": 200,
+    "reference_used_gpu": false,
+    "reference_best_iteration": 117,
+    "reference_best_score": 567.174921252701,
+    "reference_model_path": "artifacts/results/tree_model_walkforward_lightgbm_full/reference_model__lightgbm__return__raw__market_plus_all6_channels.json",
+    "MAE": 0.04678379394375653,
+    "MSE": 0.0038179280528666624,
+    "RMSE": 0.061789384629292614
+  }
+}

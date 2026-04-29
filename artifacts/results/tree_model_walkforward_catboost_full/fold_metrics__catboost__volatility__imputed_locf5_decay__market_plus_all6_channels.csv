@@ -1,0 +1,5 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,MAE,MSE,RMSE
+catboost,volatility,imputed_locf5_decay__market_plus_all6_channels,1,556,139,63,2024-01-02,2024-08-08,False,170,67.2244066003437,0.004951612292425713,3.356928058563089e-05,0.005793900291309033
+catboost,volatility,imputed_locf5_decay__market_plus_all6_channels,2,606,152,63,2024-08-09,2025-04-03,False,364,61.09641568186245,0.006084532652970016,5.792537662077526e-05,0.007610872264121588
+catboost,volatility,imputed_locf5_decay__market_plus_all6_channels,3,657,164,63,2025-04-04,2025-11-10,False,238,66.57157644600254,0.006657803111025292,9.275457889043014e-05,0.009630917863341486
+catboost,volatility,imputed_locf5_decay__market_plus_all6_channels,4,707,177,12,2025-11-11,2025-12-12,False,276,79.06401168860941,0.004695439814910274,2.9066227949455643e-05,0.005391310411157537

@@ -1,0 +1,71 @@
+{
+  "model": {
+    "name": "lightgbm"
+  },
+  "task": {
+    "name": "volatility",
+    "target_col": "target_vol_parkinson",
+    "task_type": "regression",
+    "scale": 10000.0,
+    "lag_feature_cols": [
+      "vol_lag1",
+      "vol_lag2",
+      "vol_lag3",
+      "vol_lag4",
+      "ret_lag1",
+      "ret_lag2",
+      "ret_lag3",
+      "ret_lag4"
+    ],
+    "threshold": 0.5
+  },
+  "scenario": {
+    "name": "raw_decay__single__geopolitical_normalisation_and_peace",
+    "channel_variant": "raw_decay",
+    "feature_cols": [
+      "CO1 Comdty - Open Interest",
+      "SMAVG (15)",
+      "raw_decay__z_Geopolitical Normalisation and Peace"
+    ],
+    "notes": "channel_variant=raw_decay, single_channel=z_Geopolitical Normalisation and Peace"
+  },
+  "feature_cols": [
+    "vol_lag1",
+    "vol_lag2",
+    "vol_lag3",
+    "vol_lag4",
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "CO1 Comdty - Open Interest",
+    "SMAVG (15)",
+    "raw_decay__z_Geopolitical Normalisation and Peace"
+  ],
+  "test_step_rows": 63,
+  "news_lag_days": 1,
+  "summary": {
+    "model": "lightgbm",
+    "task": "volatility",
+    "task_type": "regression",
+    "target_col": "target_vol_parkinson",
+    "scenario": "raw_decay__single__geopolitical_normalisation_and_peace",
+    "channel_variant": "raw_decay",
+    "feature_count": 11,
+    "features": "vol_lag1 | vol_lag2 | vol_lag3 | vol_lag4 | ret_lag1 | ret_lag2 | ret_lag3 | ret_lag4 | CO1 Comdty - Open Interest | SMAVG (15) | raw_decay__z_Geopolitical Normalisation and Peace",
+    "notes": "channel_variant=raw_decay, single_channel=z_Geopolitical Normalisation and Peace",
+    "n_train": 695,
+    "n_test": 201,
+    "walkforward_folds": 4,
+    "walkforward_used_gpu_any": false,
+    "walkforward_n_train_total": 695,
+    "walkforward_n_test_total": 201,
+    "reference_used_gpu": false,
+    "reference_best_iteration": 31,
+    "reference_best_score": 68.3461845293479,
+    "reference_model_path": "artifacts/results/tree_model_walkforward_lightgbm_full/reference_model__lightgbm__volatility__raw_decay__single__geopolitical_normalisation_and_peace.json",
+    "MAE": 0.006309392439452187,
+    "MSE": 6.657330904732651e-05,
+    "RMSE": 0.008159246843142233
+  }
+}

@@ -1,0 +1,3 @@
+model,task,scenario,fold_idx,train_rows,val_rows,block_rows,block_start,block_end,used_gpu,best_iteration,best_score,Accuracy,Precision,Recall,F1,PositiveRate,PredictedPositiveRate,ROC_AUC,PR_AUC
+lightgbm,jump,raw__market_only,1,408,102,63,2024-04-12,2025-08-06,False,63,0.7131278600421188,0.6349206349206349,0.7741935483870968,0.6,0.676056338028169,0.6349206349206349,0.49206349206349204,0.6728260869565217,0.7321669261997421
+lightgbm,jump,raw__market_only,2,458,115,40,2025-08-07,2025-12-12,False,39,0.7112183818781832,0.85,0.0,0.0,0.0,0.1,0.05,0.45833333333333337,0.11322055137844611

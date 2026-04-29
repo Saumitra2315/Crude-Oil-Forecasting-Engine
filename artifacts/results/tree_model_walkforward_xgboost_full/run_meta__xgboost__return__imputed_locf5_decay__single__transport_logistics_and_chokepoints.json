@@ -1,0 +1,63 @@
+{
+  "model": {
+    "name": "xgboost"
+  },
+  "task": {
+    "name": "return",
+    "target_col": "target_return",
+    "task_type": "regression",
+    "scale": 10000.0,
+    "lag_feature_cols": [
+      "ret_lag1",
+      "ret_lag2",
+      "ret_lag3",
+      "ret_lag4"
+    ],
+    "threshold": 0.5
+  },
+  "scenario": {
+    "name": "imputed_locf5_decay__single__transport_logistics_and_chokepoints",
+    "channel_variant": "imputed_locf5_decay",
+    "feature_cols": [
+      "CO1 Comdty - Open Interest",
+      "SMAVG (15)",
+      "imputed_locf5_decay__z_Transport logistics and chokepoints"
+    ],
+    "notes": "channel_variant=imputed_locf5_decay, single_channel=z_Transport logistics and chokepoints"
+  },
+  "feature_cols": [
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "CO1 Comdty - Open Interest",
+    "SMAVG (15)",
+    "imputed_locf5_decay__z_Transport logistics and chokepoints"
+  ],
+  "test_step_rows": 63,
+  "news_lag_days": 1,
+  "summary": {
+    "model": "xgboost",
+    "task": "return",
+    "task_type": "regression",
+    "target_col": "target_return",
+    "scenario": "imputed_locf5_decay__single__transport_logistics_and_chokepoints",
+    "channel_variant": "imputed_locf5_decay",
+    "feature_count": 7,
+    "features": "ret_lag1 | ret_lag2 | ret_lag3 | ret_lag4 | CO1 Comdty - Open Interest | SMAVG (15) | imputed_locf5_decay__z_Transport logistics and chokepoints",
+    "notes": "channel_variant=imputed_locf5_decay, single_channel=z_Transport logistics and chokepoints",
+    "n_train": 699,
+    "n_test": 200,
+    "walkforward_folds": 4,
+    "walkforward_used_gpu_any": true,
+    "walkforward_n_train_total": 699,
+    "walkforward_n_test_total": 200,
+    "reference_used_gpu": true,
+    "reference_best_iteration": 142,
+    "reference_best_score": 592.3342038190859,
+    "reference_model_path": "artifacts/results/tree_model_walkforward_xgboost_full/reference_model__xgboost__return__imputed_locf5_decay__single__transport_logistics_and_chokepoints.json",
+    "MAE": 0.04623086203753518,
+    "MSE": 0.0037875576898596663,
+    "RMSE": 0.06154313682174208
+  }
+}

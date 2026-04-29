@@ -10,8 +10,21 @@ __pycache__/
 *.bin
 *.html
 *.png
+!.github/
+!docs/assets/
+!docs/assets/final_results/
+!docs/assets/final_results/**/*.png
 
 # Local environments
 .venv/
 venv/
 env/
+
+# Local runtime/cache outputs
+.cache/
+.codex
+catboost_info/
+
+# Exploratory benchmark runs
+artifacts/results/tree_model_walkforward_smoke/
+artifacts/results/tree_model_walkforward_smoke2/

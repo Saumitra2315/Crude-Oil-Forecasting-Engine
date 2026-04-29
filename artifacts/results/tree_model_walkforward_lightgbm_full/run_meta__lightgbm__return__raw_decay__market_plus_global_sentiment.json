@@ -1,0 +1,63 @@
+{
+  "model": {
+    "name": "lightgbm"
+  },
+  "task": {
+    "name": "return",
+    "target_col": "target_return",
+    "task_type": "regression",
+    "scale": 10000.0,
+    "lag_feature_cols": [
+      "ret_lag1",
+      "ret_lag2",
+      "ret_lag3",
+      "ret_lag4"
+    ],
+    "threshold": 0.5
+  },
+  "scenario": {
+    "name": "raw_decay__market_plus_global_sentiment",
+    "channel_variant": "raw_decay",
+    "feature_cols": [
+      "CO1 Comdty - Open Interest",
+      "SMAVG (15)",
+      "Global_Sentiment"
+    ],
+    "notes": "channel_variant=raw_decay, global_sentiment_only"
+  },
+  "feature_cols": [
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "CO1 Comdty - Open Interest",
+    "SMAVG (15)",
+    "Global_Sentiment"
+  ],
+  "test_step_rows": 63,
+  "news_lag_days": 1,
+  "summary": {
+    "model": "lightgbm",
+    "task": "return",
+    "task_type": "regression",
+    "target_col": "target_return",
+    "scenario": "raw_decay__market_plus_global_sentiment",
+    "channel_variant": "raw_decay",
+    "feature_count": 7,
+    "features": "ret_lag1 | ret_lag2 | ret_lag3 | ret_lag4 | CO1 Comdty - Open Interest | SMAVG (15) | Global_Sentiment",
+    "notes": "channel_variant=raw_decay, global_sentiment_only",
+    "n_train": 699,
+    "n_test": 200,
+    "walkforward_folds": 4,
+    "walkforward_used_gpu_any": false,
+    "walkforward_n_train_total": 699,
+    "walkforward_n_test_total": 200,
+    "reference_used_gpu": false,
+    "reference_best_iteration": 113,
+    "reference_best_score": 570.245762775599,
+    "reference_model_path": "artifacts/results/tree_model_walkforward_lightgbm_full/reference_model__lightgbm__return__raw_decay__market_plus_global_sentiment.json",
+    "MAE": 0.045542811317020176,
+    "MSE": 0.0036265353267620182,
+    "RMSE": 0.06022072173896638
+  }
+}

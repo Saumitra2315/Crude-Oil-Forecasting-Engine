@@ -1,0 +1,84 @@
+{
+  "model": {
+    "name": "xgboost"
+  },
+  "task": {
+    "name": "jump",
+    "target_col": "target_jump_flag",
+    "task_type": "classification",
+    "scale": 1.0,
+    "lag_feature_cols": [
+      "jump_lag1",
+      "jump_lag2",
+      "jump_lag3",
+      "jump_lag4",
+      "vol_lag1",
+      "vol_lag2",
+      "vol_lag3",
+      "vol_lag4",
+      "ret_lag1",
+      "ret_lag2",
+      "ret_lag3",
+      "ret_lag4"
+    ],
+    "threshold": 0.5
+  },
+  "scenario": {
+    "name": "raw__single__demand_and_macro_economy",
+    "channel_variant": "raw",
+    "feature_cols": [
+      "CO1 Comdty - Open Interest",
+      "SMAVG (15)",
+      "raw__z_Demand and macro economy"
+    ],
+    "notes": "channel_variant=raw, single_channel=z_Demand and macro economy"
+  },
+  "feature_cols": [
+    "jump_lag1",
+    "jump_lag2",
+    "jump_lag3",
+    "jump_lag4",
+    "vol_lag1",
+    "vol_lag2",
+    "vol_lag3",
+    "vol_lag4",
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "CO1 Comdty - Open Interest",
+    "SMAVG (15)",
+    "raw__z_Demand and macro economy"
+  ],
+  "test_step_rows": 63,
+  "news_lag_days": 1,
+  "summary": {
+    "model": "xgboost",
+    "task": "jump",
+    "task_type": "classification",
+    "target_col": "target_jump_flag",
+    "scenario": "raw__single__demand_and_macro_economy",
+    "channel_variant": "raw",
+    "feature_count": 15,
+    "features": "jump_lag1 | jump_lag2 | jump_lag3 | jump_lag4 | vol_lag1 | vol_lag2 | vol_lag3 | vol_lag4 | ret_lag1 | ret_lag2 | ret_lag3 | ret_lag4 | CO1 Comdty - Open Interest | SMAVG (15) | raw__z_Demand and macro economy",
+    "notes": "channel_variant=raw, single_channel=z_Demand and macro economy",
+    "n_train": 510,
+    "n_test": 103,
+    "walkforward_folds": 2,
+    "walkforward_used_gpu_any": true,
+    "walkforward_n_train_total": 510,
+    "walkforward_n_test_total": 103,
+    "reference_used_gpu": true,
+    "reference_best_iteration": 8,
+    "reference_best_score": 0.7505906708358073,
+    "reference_model_path": "artifacts/results/tree_model_walkforward_xgboost_full/reference_model__xgboost__jump__raw__single__demand_and_macro_economy.json",
+    "Accuracy": 0.7572815533980582,
+    "Precision": 0.7317073170731707,
+    "Recall": 0.6818181818181818,
+    "F1": 0.7058823529411765,
+    "PositiveRate": 0.42718446601941745,
+    "PredictedPositiveRate": 0.39805825242718446,
+    "ROC_AUC": 0.7207241910631741,
+    "PR_AUC": 0.6478133043356479
+  }
+}
